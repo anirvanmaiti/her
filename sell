@@ -1,0 +1,24 @@
+<?php
+	include("h_head.php")
+?>
+<html>
+	<head>
+		<title>
+			Sell your product
+		</title>
+	</head>
+
+	<body class="container">
+		<h2 style="text-align:  center; color: #66ccff">Please type in the name of the product that you want to <em>SELL!</em></h2>
+        <h2 style="text-align:  center; color: #66ccff">Provide all the the required informations about the product</h2><br><br>
+		<div style="text-align:  center;" class="container">
+		<form class="form-4" method="post" action="productlive.php">
+			<label><strong>PRODUCT NAME</strong> : </label><br>
+			<input type="text" name="pname"><br>
+			<label><strong>DESCRIPTION</strong> : </label><br>
+			<textarea name="pdes"></textarea><br>
+			<input type="submit" name="submit">
+		</form>
+		</div>
+	</body>
+</html>
