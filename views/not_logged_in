@@ -1,0 +1,77 @@
+<?php
+// show potential errors / feedback (from login object)
+if (isset($login)) {
+    if ($login->errors) {
+        foreach ($login->errors as $error) {
+            echo $error;
+        }
+    }
+    if ($login->messages) {
+        foreach ($login->messages as $message) {
+            echo $message;
+        }
+    }
+}
+?>
+
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="css/style1.css" />
+        <script src="js/modernizr.custom.63321.js"></script>
+        <style> 
+            @import url(http://fonts.googleapis.com/css?family=Raleway:400,700);
+            body {
+                background: #7f9b4e url(images/pottery.jpeg) no-repeat center top;
+                -webkit-background-size: cover;
+                -moz-background-size: cover;
+                background-size: cover;
+            }
+            .container > header h1,
+            .container > header h2 {
+                color: #fff;
+                text-shadow: 0 1px 1px rgba(0,0,0,0.7);
+            }
+        </style>
+    </head>
+
+    <body>  
+    <div class="container">
+    <header>
+            
+                <h1>Innovate <strong>Her !</strong></h1>
+                <h2>PLEASE LOG IN</h2>
+                <h2>     to access your account and courses</h2>
+                
+                <!--<nav class="codrops-demos">
+                    <a href="index.html">Demo 1</a>
+                    <a href="index2.html">Demo 2</a>
+                    <a href="index3.html">Demo 3</a>
+                    <a class="current-demo" href="index4.html">Demo 4</a>
+                    <a href="index5.html">Demo 5</a>
+                </nav>-->
+
+                <div class="support-note">
+                    <span class="note-ie">Sorry, only modern browsers.</span>
+                </div>
+                
+            </header>
+        <section class="main">
+        <!-- login form box -->
+        <form method="post" action="home.php" name="loginform" class="form-4">
+
+        <label for="login_input_username">Username</label>
+        <input id="login_input_username" class="login_input" type="text" name="user_name" placeholder="Username" required />
+
+        <label for="login_input_password">Password</label>
+        <input id="login_input_password" class="login_input" type="password" name="user_password" autocomplete="off" placeholder="Password" required />
+
+        <input type="submit"  name="login" value="Log in" />    
+        </form>
+                    <form class="form-4" action="register.php">
+                        <input type="submit" value="Register Now">
+                    </form>
+        </section>
+        </div>
+        <a href="register.php">Register new account</a>
+    </body>
+</html>
