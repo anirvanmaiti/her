@@ -1,0 +1,48 @@
+
+<?php 
+	include("h_head.php");
+	session_start();
+	if (isset($_REQUEST['submit'])) 
+    	teach();
+	echo $_SESSION['user_name']; 
+	function teach()
+	{
+session_start();
+$name = $_POST["name"]; // gather all the variables
+$des = $_POST['des'];
+$date = $_POST['date'];
+$radio = $_POST['radio'];
+$host = $_SESSION['user_name'];
+//if(isset($_POST['name'])){ $name = $_POST['name'];
+
+//connect
+$conn = new mysqli('localhost', 'root', '123456', 'her');
+    if(mysqli_connect_errno()) {
+        exit('Connect failed: '. mysqli_connect_error());
+    }
+//generate the query (doesn't add id because id is autoincremented)
+$query = "INSERT INTO event (name,des,edate,offline,host) VALUES ('$name', '$des', '$date', '$radio', '$host')";
+//"INSERT INTO users (user_name, user_password_hash, user_email)
+  //                          VALUES('" . $user_name . "', '" . $user_password_hash . "', '" . $user_email . "');";
+//$query = "INSERT INTO t_agent VALUES (NULL, " . $agent_nm . ", " . $company . ", " . $address . ", " . $city . ", " . $zip . ", " . $state . ", " . $phone . ", " . $web_site . ", " . $batch_id . ")";
+
+//insert and close.
+mysqli_query($conn, $query);
+mysqli_close($conn);
+
+}
+
+?>
+
+<html>
+	<head>
+		<title>
+			Thank you for registering!
+		</title>
+	</head>
+
+	<body class="container">
+		Thank you for registering. You will get a mail shortly after we review your application!
+		<a href="home.php"> Go to home </a>
+	</body>
+</html>
