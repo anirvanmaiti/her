@@ -1,0 +1,78 @@
+<?php
+	include("h_head.php");
+?>
+
+<html>
+	<head>
+		<title>
+			Product Page
+		</title>
+	</head>
+
+	<body class="container">
+		<?php
+			session_start();
+			//echo $_SESSION['user_contact'];
+			//echo $id;
+		$con=mysqli_connect("localhost","root","123456","her");
+			// Check connection
+			if (mysqli_connect_errno())
+  			{
+  				echo "Failed to connect to MySQL: " . mysqli_connect_error();
+  			}
+  			//$sname = $_SESSION['user_name'];
+  			//echo $sname;
+			$pkey = mysql_real_escape_string($_GET['pid']);
+			$sql = mysqli_query($con,"SELECT * FROM product where pid='$pkey' LIMIT 1");
+			//$sql = "SELECT 'contact' FROM 'event' where id='$pkey' LIMIT 1";
+			//$cnt = mysqli_query($con, "SELECT 'user_email' FROM 'users' where user_name='$name' LIMIT 1");
+			//echo $cnt;
+			//echo "hi";
+			$row = mysqli_fetch_array($sql);
+			//$row1 = mysqli_fetch_array($cnt);
+			//echo $cnt['user_name'];
+
+        	echo "<div class='post'>";
+         	echo "<h2 class='title'>";
+			echo $row['pname'];
+			echo "<br></h2>";
+			echo $row['pdes'];
+			echo "<br>";
+			echo $row['seller'];
+
+         	 echo "<br><br><br><hr></div>";
+			//echo $cnt;
+			//For buy realted quires contact on the phone number
+		?>
+
+		<?php
+			session_start();
+			//echo $_SESSION['user_contact'];
+			//echo $id;
+		$con=mysqli_connect("localhost","root","123456","her");
+			// Check connection
+			if (mysqli_connect_errno())
+  			{
+  				echo "Failed to connect to MySQL: " . mysqli_connect_error();
+  			}
+  			$sname = $_SESSION['user_name'];
+  			echo $sname;
+			//$pkey = mysql_real_escape_string($_GET['pid']);
+			$sql = mysqli_query($con,"SELECT * from users where user_name='$sname'");
+			//$sql = "SELECT 'contact' FROM 'event' where id='$pkey' LIMIT 1";
+			//$cnt = mysqli_query($con, "SELECT 'user_email' FROM 'users' where user_name='$name' LIMIT 1");
+			//echo $cnt;
+			//echo "hi";
+			$row = mysqli_fetch_array($sql);
+			//$row1 = mysqli_fetch_array($cnt);
+			//echo $cnt['user_name'];
+			echo $row['contact'];
+			//echo "<br>";
+			//echo $row['pdes'];
+			//echo $cnt;
+			//For buy realted quires contact on the phone number
+		?>
+
+		
+	</body>
+</html>
