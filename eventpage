@@ -1,0 +1,40 @@
+<?php
+	include("h_head.php")
+?>
+<html>
+	<head>
+		<title>
+			Event Page
+		</title>
+	</head>
+
+	<body class="container">
+		<?php
+		$con=mysqli_connect("localhost","root","123456","her");
+			// Check connection
+			if (mysqli_connect_errno())
+  			{
+  				echo "Failed to connect to MySQL: " . mysqli_connect_error();
+  			}
+  			
+			$pkey = mysql_real_escape_string($_GET['id']);
+			$sql = mysqli_query($con,"SELECT * FROM event where id='$pkey' LIMIT 1");
+			//$sql = "SELECT * FROM event where id='$pkey' LIMIT 1";
+			$row = mysqli_fetch_array($sql);
+
+        	echo "<div class='post'>";
+         	echo "<h2 class='title'>";
+			echo $row['name'];
+			echo "<br></h2></div><div class='entry'>";
+			echo $row['des'];
+			echo "<br>";
+			echo $row['edate'];
+			echo "<br>";
+			echo $row['offline'];
+			echo "<br>";
+			echo "<a href='websession.php?id=".$row['id']."'> Attend this event</a>";	
+
+         	 echo "<br><br><br><hr></div>";
+		?>
+	</body>
+</html>
