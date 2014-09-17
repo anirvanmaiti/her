@@ -1,0 +1,29 @@
+<html>	
+	<head>
+		<title>
+			Registeration for the event!
+		</title>
+	</head>
+
+	<body>
+		<?php
+			session_start();
+			echo $_SESSION['user_name'];
+			$con=mysqli_connect("localhost","root","123456","her");
+			// Check connection
+			if (mysqli_connect_errno())
+  			{
+  				echo "Failed to connect to MySQL: " . mysqli_connect_error();
+  			}
+  			
+			$pkey = mysql_real_escape_string($_GET['id']);
+			$sql = mysqli_query($con,"SELECT * FROM event where id='$pkey' LIMIT 1");
+			//$sql = "SELECT * FROM event where id='$pkey' LIMIT 1";
+			$row = mysqli_fetch_array($sql);
+			echo $row['name'];
+			echo "<br>";
+			echo $row['des'];
+			echo "<a href='eventreg.php?id=".$row['id']."'> Register for this event</a>";	
+		?>
+	</body>
+</html>
