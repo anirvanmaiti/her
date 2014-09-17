@@ -1,0 +1,146 @@
+<?php
+  include("h_head.php");
+?>
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>InnovateHer | Empowering Women since 2014</title>
+    <meta name="keywords" content="powerful, responsive, fluid, bootstrap, blue, white, free website template, templatemo" />
+	<meta name="description" content="Powerful is a responsive template based on Bootstrap. This fluid layout is ready for mobile devices and provided by templatemo for free download." />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/templatemo_style.css" rel="stylesheet">
+
+    <link href="css/circle.css" rel="stylesheet">
+    <link href="css/jquery.bxslider.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/nivo-slider.css">
+    <link href='http://fonts.googleapis.com/css?family=Raleway:400,100,600' rel='stylesheet' type='text/css'>
+    <script src="js/modernizr.custom.js"></script>
+
+    </head>
+  <body>
+    <header>
+      <div id="templatemo_top" class="mainTop">
+        <div class="container">
+          <div class="row">
+            <div class="hidden-xs hidden-sm col-md-6">
+              <div class="mailme">
+                <a href="mailto:team-invictus@gmail.com"><i class="fa fa-envelope"></i>team-invictus@gmail.com</a>
+              </div>
+            </div>
+            <div class="col-sm-12 col-md-6">
+              <div class="socials">
+                <ul>
+                  <li><a href="#"><i class="fa fa-twitter soc"></i></a></li>
+                  <li><a href="#"><i class="fa fa-facebook soc"></i></a></li>
+                  <li><a href="#"><i class="fa fa-rss soc"></i></a></li>
+                  <li><a href="#"><i class="fa fa-dribbble soc"></i></a></li>
+                  <li><a href="#"><i class="fa fa-instagram soc"></i></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> <!-- e/o mainTop -->
+    </header>
+  </body>
+
+  <div class="mWrapper">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-4 col-md-4">
+            <div class="logo">
+              <a rel="nofollow" href="http://www.google.com"><img src="images/her_logo.jpg" alt="Invictus"></a>
+            </div>
+          </div>
+          <div class="col-sm-8 col-md-8">
+            <nav class="mainMenu">
+              <ul class="nav">
+                <li><a href="#templatemo_top">Home</a></li>
+                <li><a href="#templatemo_services">Learn</a></li>
+                <li><a href="#templatemo_portfolio">Teach</a></li>
+                <li><a href="#templatemo_about">Buy</a></li>
+                <li><a href="#templatemo_contact">Sell</a></li>
+                <li><a href="login.html">Login/Signup</a></li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="content">
+    <?php 
+    session_start();
+    echo $_SESSION['user_name']; 
+    //require_once("config/db.php");
+
+    //require_once("classes/Login.php");
+    ?>
+    <a href = "teach.php"> Go Teach </a>
+    <a href = "home.php?logout"> Logout </a>
+    <br><br><br>
+     <?php
+      $con=mysqli_connect("localhost","root","123456","her");
+      // Check connection
+      if (mysqli_connect_errno())
+        {
+          echo "Failed to connect to MySQL: " . mysqli_connect_error();
+        }
+
+      $result = mysqli_query($con,"SELECT * FROM `event` WHERE 1");
+
+      while($row = mysqli_fetch_array($result)) 
+        {
+          echo "<div class='post'>";
+          echo "<h2 class='title'>";
+          echo "<a href='eventpage.php?id=".$row['id']."'>" . $row['name'] . "</a></h2>";
+          echo "<br>";
+          echo "<div class='entry'>";
+          echo $row['des'];
+          echo "<br><br><br><br><br><hr></div>";
+      } 
+
+      mysqli_close($con);
+      ?>
+        <!--
+            <div class="post">
+                <h2 class="title">Welcome to Our Website!</h2>
+                <div class="entry">
+            </div>   
+
+            <div class="post">
+                <h2 class="title">Welcome to Our Website!</h2>
+                <div class="entry">
+            </div>   
+
+            <div class="post">
+                <h2 class="title">Welcome to Our Website!</h2>
+                <div class="entry">
+            </div>-->
+            <!--    
+            </div>
+            <div class="post">
+                <h2 class="title">Praesent scelerisque scelerisque erat</h2>
+                <div class="entry">
+                    <p>In posuere eleifend odio. Quisque semper augue mattis wisi. Maecenas ligula. Pellentesque viverra vulputate enim. Aliquam erat volutpat. Pellentesque tristique ante ut risus. Quisque dictum. Integer nisl risus, sagittis convallis, rutrum id, elementum congue, nibh. Suspendisse dictum porta lectus. Donec placerat odio vel elit. Nullam ante orci, pellentesque eget, tempus quis, ultrices in, est. Curabitur sit amet nulla. Nam in massa. </p>
+                </div>
+                <p class="meta"><small>Posted <a href="#">freewordpressthemes</a> | <a href="#">Edit</a> Filed under <a href="#">WordPress</a>, <a href="#">Internet</a> | <a href="#">No Comments &raquo;</a></small></p>
+            </div>
+            <div class="post">
+                <h2 class="title">Maecenas luctus lectus at sapien</h2>
+                <div class="entry">
+                    <p>In posuere eleifend odio. Quisque semper augue mattis wisi. Maecenas ligula. Pellentesque viverra vulputate enim. Aliquam erat volutpat. Pellentesque tristique ante ut risus. Quisque dictum. Integer nisl risus, sagittis convallis, rutrum id, elementum congue, nibh. Suspendisse dictum porta lectus. Donec placerat odio vel elit. Nullam ante orci, pellentesque eget, tempus quis, ultrices in, est. Curabitur sit amet nulla. Nam in massa. </p>
+                    <p>Pellentesque viverra vulputate enim. Aliquam erat volutpat. Pellentesque tristique ante ut risus. Quisque dictum. Integer nisl risus, sagittis convallis, rutrum id, elementum congue, nibh. Suspendisse dictum porta lectus. Donec placerat odio vel elit. Nullam ante orci, pellentesque eget, tempus quis, ultrices in, est. <br />
+                    </p>
+                </div>
+                <p class="meta"><small>Posted <a href="#">freewordpressthemes</a> | <a href="#">Edit</a> Filed under <a href="#">WordPress</a>, <a href="#">Internet</a> | <a href="#">No Comments &raquo;</a></small></p>
+            </div>
+        </div> -->
+
+        </body>
+        </html>
