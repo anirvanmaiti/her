@@ -1,0 +1,74 @@
+<?php
+// show potential errors / feedback (from registration object)
+if (isset($registration)) {
+    if ($registration->errors) {
+        foreach ($registration->errors as $error) {
+            echo $error;
+        }
+    }
+    if ($registration->messages) {
+        foreach ($registration->messages as $message) {
+            echo $message;
+        }
+    }
+}
+?>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="css/style1.css" />
+        <script src="js/modernizr.custom.63321.js"></script>
+        <style> 
+            @import url(http://fonts.googleapis.com/css?family=Raleway:400,700);
+            body {
+                background: #7f9b4e url(images/pottery2.jpg) no-repeat center top;
+                -webkit-background-size: cover;
+                -moz-background-size: cover;
+                background-size: cover;
+            }
+            .container > header h1,
+            .container > header h2 {
+                color: #fff;
+                text-shadow: 0 1px 1px rgba(0,0,0,0.7);
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="container">
+
+        <header>
+            
+                <h1>Innovate <strong>Her !</strong></h1>
+                <h2>WELCOME !</h2>
+                <h2>     register below to create your account</h2>
+
+                <section class="main">
+<!-- register form -->
+<form method="post" action="login.php" name="registerform" class="form-4">
+
+    <!-- the user name input field uses a HTML5 pattern check -->
+    <label for="login_input_username">Username (only letters and numbers, 2 to 64 characters)</label>
+    <input id="login_input_username" class="login_input" type="text" pattern="[a-zA-Z0-9]{2,64}" name="user_name" placeholder="Username" required /><br>
+
+    <!-- the email input field uses a HTML5 email type check -->
+    <label for="login_input_email">User's email</label>
+    <input id="login_input_email" class="login_input" type="email" placeholder="E-mail" name="user_email" required /><br>
+
+    <label for="contact">User's contact number</label>
+    <input id="contact" class="login_input" type="text" placeholder="Contact Number"  name="contact"><br>
+
+    <label for="login_input_password_new">Password (min. 6 characters)</label>
+    <input id="login_input_password_new" class="login_input" type="password" name="user_password_new" placeholder="Password" pattern=".{6,}" required autocomplete="off" /><br>
+
+    <label for="login_input_password_repeat">Repeat password</label>
+    <input id="login_input_password_repeat" class="login_input" type="password" placeholder="Re-enter Password" name="user_password_repeat" pattern=".{6,}" required autocomplete="off" /><br>
+    <input type="submit"  name="register" value="Register" />
+
+</form>
+    
+<!-- backlink -->
+<a href="login.php">Back to Login Page</a>
+</section>
+    </div>
+</body>
+</html>
