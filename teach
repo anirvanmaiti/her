@@ -1,0 +1,47 @@
+<?php
+  include("h_head.php");
+?>
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>InnovateHer | Empowering Women since 2014</title>
+    <meta name="keywords" content="powerful, responsive, fluid, bootstrap, blue, white, free website template, templatemo" />
+	<meta name="description" content="Powerful is a responsive template based on Bootstrap. This fluid layout is ready for mobile devices and provided by templatemo for free download." />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/templatemo_style.css" rel="stylesheet">
+
+    <link href="css/circle.css" rel="stylesheet">
+    <link href="css/jquery.bxslider.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/nivo-slider.css">
+    <link href='http://fonts.googleapis.com/css?family=Raleway:400,100,600' rel='stylesheet' type='text/css'>
+    <script src="js/modernizr.custom.js"></script>
+
+    </head>
+  <body class="container">
+    <h2 style="text-align:  center; color: #66ccff">Please type in the course that you want to provide</h2>
+    <h2 style="text-align:  center; color: #66ccff">Provide all the the required informations about the course</h2>
+    <h2 style="text-align:  center; color: #66ccff">Also mention if its offline/online</h2>
+    <div style="text-align:  center;" id="content" class="container">
+      <form method="post" action="thankyou.php" class="form-4"><br><br>
+      <label><strong>EVENT NAME</strong> : </label><br>
+      <input type="text" name="name"><br>
+      <label><strong>DESCRIBE : </strong></label><br>
+      <textarea name="des"></textarea><br>
+      <label><strong>DATE : </strong> </label><br>
+      <input type="datetime" name="date"><br>
+      <label><strong>Is is offline?</strong></span></label><br>
+      <input type="radio" name="radio" value="yes">Yes   
+      <input type="radio" name="radio" value="no">No<br> 
+      <input type="submit" name="submit">
+    </form>
+    </div>
+    <br><br><br>
+     
+        
+        </body>
+        </html>
