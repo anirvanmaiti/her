@@ -1,0 +1,39 @@
+  <?php
+    include("h_head.php");
+  ?>
+
+  <html>
+  <head>
+    <title>InnovateHer | Empowering Women since 2014</title>
+  </head>
+<body class="container">
+  slkfjnslknf
+  <hr>
+<?php
+      session_start();
+
+      //echo $_SESSION['user_contact'];
+      $con=mysqli_connect("localhost","root","123456","her");
+      // Check connection
+      if (mysqli_connect_errno())
+        {
+          echo "Failed to connect to MySQL: " . mysqli_connect_error();
+        }
+
+      $result = mysqli_query($con,"SELECT * FROM `product` WHERE 1");
+
+      while($row = mysqli_fetch_array($result)) 
+        {
+          echo "<div class='post'>";
+              echo "<h2 class='title'>";
+          echo "<a href='buypage.php?pid=".$row['pid']."'>" . $row['pname'] . "</a></h2></div><div class='entry'>";
+          echo "<br>";
+          echo $row['pdes'];
+              echo "<div class='entry'>";
+          echo "<br><hr></div>";
+      } 
+
+      mysqli_close($con);
+      ?>
+    </body>
+</html>
